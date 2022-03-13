@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.moonx.roomapp.ui.mainActvity.fragments.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.moonx.roomapp.ui.mainActvity.fragments.list.ListFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+        <argument
+            android:name="user_args"
+            app:argType="com.moonx.roomapp.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.moonx.roomapp.ui.mainActvity.fragments.edit.EditFragment"
+        android:label="EditFragment" >
+        <action
+            android:id="@+id/action_editFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="isFragInAddMode"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <argument
+            android:name="note"
+            app:argType="com.moonx.roomapp.models.Note" />
+    </fragment>
+</navigation>
